@@ -23,10 +23,13 @@
                <div class="container">
                     <div class="header__top">
                          <a href="index.html" class="header__logo">
-                              <img src="./img/Logo.png" alt="" class="header__logo-img">
+                              <img src="./img/Logo.png" alt="Логотип компании" class="header__logo-img">
                          </a>
-                         <nav class="header__nav">
-                              <ul class="header__list">
+                         <a href="index.html" class="header__logo-min">
+                              <img src="./img/logo-min.png" alt="Логотип компании" class="header__logo-img">
+                         </a>
+                         <nav class="header__nav ">
+                              <ul class="header__list ">
                                    <li class="header__item">
                                         <a href="#" class="header__link">Home</a>
                                         <ul>
@@ -74,7 +77,11 @@
                                    </li>
                               </ul>
                               <button class="header__btn btn">Get Started</button>
+
                          </nav>
+                         <div class="header__top-menu ">
+                              <div class="header__top-line"></div>
+                         </div>
                     </div>
                     <div class="header__bot">
                          <h3 class="header__title">Build stunning websites & apps.</h3>
@@ -212,11 +219,12 @@
                          </div>
                          <form class='contacts__form'>
                               <label class="contacts__lable">Your Email Address</label>
-                              <input type="mail" class="contacts__input" placeholder="something@website.com">
+                              <input type="mail" class="contacts__input input" placeholder="something@website.com">
                               <label class="contacts__lable">Subject</label>
-                              <input type="mail" class="contacts__input" placeholder="Question about your article">
+                              <input type="mail" class="contacts__input input"
+                                   placeholder="Question about your article">
                               <label class="contacts__lable">Message</label>
-                              <textarea type="mail" class="contacts__input contacts__input-mes"
+                              <textarea type="mail" class="contacts__input contacts__input-mes input"
                                    placeholder="Your message starts with…"></textarea>
                               <button class="btn contacts__btn">Send a Message</button>
                          </form>
@@ -237,7 +245,7 @@
                                    Get notified about company updates, news and blog posts. We hate spam.
                               </p>
                               <form class="star__form">
-                                   <input type="text" class="start__input" placeholder="Enter your email">
+                                   <input type="text" class="start__input input" placeholder="Enter your email">
                                    <button class="btn start__btn">Get Started</button>
                               </form>
                          </div>
@@ -371,17 +379,17 @@
                     <div class="footer__bot">
                          <div class="footer__bot-wrapper">
                               <a href="#" class="footer__bot-link">
-                                   <svg class="footer__bot-icon" width="21" height="16">
+                                   <svg class="footer__bot-icon footer__bot-icon--tw" width="21" height="16">
                                         <use xlink:href="img/icons.svg#tw"></use>
                                    </svg>
                               </a>
                               <a href="#" class="footer__bot-link">
-                                   <svg class="footer__bot-icon" width="18" height="17">
+                                   <svg class="footer__bot-icon footer__bot-icon--fb" width="18" height="17">
                                         <use xlink:href="img/icons.svg#fb"></use>
                                    </svg>
                               </a>
                               <a href="#" class="footer__bot-link">
-                                   <svg class="footer__bot-icon" width="18" height="17">
+                                   <svg class="footer__bot-icon footer__bot-icon--li" width="18" height="17">
                                         <use xlink:href="img/icons.svg#li"></use>
                                    </svg>
                               </a>
@@ -390,6 +398,15 @@
                </div>
           </footer>
      </div>
+     <script>
+          let headerTopMenu = document.querySelector('.header__top-menu');
+          let headerNav = document.querySelector('.header__nav');
+
+          headerTopMenu.addEventListener('click', () => {
+               headerTopMenu.classList.toggle('header__top-menu--active');
+               headerNav.classList.toggle('header__nav--active')
+          })
+     </script>
 </body>
 
 </html>

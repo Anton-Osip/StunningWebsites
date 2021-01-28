@@ -19,6 +19,15 @@ img {
      display: block;
 }
 
+.input::placeholder {
+     opacity: 1;
+     transition: opacity .3s;
+}
+
+.input:focus.input::placeholder {
+     opacity: 0;
+}
+
 .container {
      width: 90%;
      max-width: 1140px;
@@ -41,6 +50,7 @@ img {
 
      padding: 18px 28px;
      transition: color .3s, background-color .3s, transform .3s, box-shadow .3s;
+     min-width: 153px;
 }
 
 .btn:hover {
@@ -70,6 +80,10 @@ img {
      width: 300px;
      height: 60px;
      display: inline-block;
+}
+
+.header__logo-min {
+     display: none;
 }
 
 .header__logo-img {
@@ -206,6 +220,11 @@ img {
      box-shadow: 0 0 30px #3040C4
 }
 
+.header__top-menu {
+     display: none;
+}
+
+
 @media(max-width:1110px) {
      .header__top {
           padding: 35px 0;
@@ -216,6 +235,21 @@ img {
           background: url('../img/ouch.svg')no-repeat bottom right;
           background-size: 554px 312px;
      }
+
+     .header__item ul li {
+          padding: 0 15px;
+     }
+
+     .header__item ul li a {
+          font-size: 18px;
+          line-height: 26px;
+          padding: 10px;
+     }
+
+     .header__item ul li:hover>ul {
+          padding: 15px 0px 10px;
+     }
+
 }
 
 @media(max-width:926px) {
@@ -234,9 +268,181 @@ img {
      .header__item ul li {
           padding: 0 10px;
      }
+
+     .header__list {
+          display: none;
+     }
+
+     .header__top-menu {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          padding: 15px 10px;
+          position: absolute;
+          top: 30px;
+          right: 50px;
+     }
+
+
+     .header__top-line {
+          width: 30px;
+          height: 2px;
+          background-color: #fff;
+
+     }
+
+     .header__top-line:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 2px;
+          background-color: #fff;
+          top: 15px;
+          left: 10px;
+     }
+
+     .header__top-line:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 2px;
+          background-color: #fff;
+          bottom: 15px;
+          left: 10px;
+     }
+
+     .header__top-menu--active .header__top-line {
+          transform: rotateZ(45deg);
+          transition: transform .5s;
+     }
+
+     .header__top-menu--active .header__top-line:after {
+          transform: rotateZ(-90deg);
+          top: 0px;
+          left: 0px;
+          transition: transform .5s;
+     }
+
+     .header__top-menu--active .header__top-line::before {
+          display: none;
+     }
+
+     .header__nav {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          max-width: 320px;
+          min-height: 100vh;
+          background-color: #fff;
+          transform: translateX(-150%);
+          transition: transform .5s;
+          padding: 25px 15px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+     }
+
+     .header__nav--active {
+          transform: translateX(0);
+     }
+
+     .header__list {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: space-between;
+          width: 100%;
+          height: 100%;
+     }
+
+     .header__item {
+          position: relative;
+          width: 100%;
+          margin-bottom: 25px;
+     }
+
+     .header__item+.header__item {
+          margin-left: 0;
+     }
+
+     .header__link {
+          width: 100%;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #2b292d10
+     }
+
+     .header__nav .header__btn {
+          display: block;
+          width: 100%;
+          margin-left: 0;
+     }
+
+     .header__item ul {
+          display: none;
+     }
+
+     .header__item:hover.header__item>ul {
+          display: block;
+          position: relative;
+          box-shadow: none;
+          top: 0;
+          right: 0;
+          border-radius: 0;
+     }
+
+
+     .header__item ul li:hover>ul {
+          position: relative;
+          top: 0;
+          left: 0;
+          background: #FFFFFF;
+          box-shadow: none;
+          padding: 10px 0px 15px 15px;
+          border-radius: 0;
+     }
 }
 
 @media(max-width:656px) {
+     .header__logo {
+          display: none;
+     }
+
+     .header__logo-min {
+          display: block;
+     }
+
+     .header__top-line {
+          background-color: #fff;
+
+     }
+
+     .header__top-line:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 2px;
+          background-color: #fff;
+          top: 15px;
+          left: 10px;
+     }
+
+     .header__top-line:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 2px;
+          background-color: #fff;
+          bottom: 15px;
+          left: 10px;
+     }
 
      .header__top {
           display: flex;
@@ -244,16 +450,6 @@ img {
           justify-content: space-between;
           flex-wrap: wrap;
           padding: 20px 0;
-     }
-
-     .header__nav {
-          width: 100%;
-          margin: 20px auto 0;
-     }
-
-     .header__list {
-          width: 100%;
-          justify-content: space-around;
      }
 
      .header__bot {
@@ -279,6 +475,25 @@ img {
           display: block;
      }
 
+}
+
+@media(max-width:426px) {
+     .header__nav {
+          max-width: 426px;
+          padding-top: 80px;
+     }
+
+     .header__top-line {
+          background-color: #2B292D;
+     }
+
+     .header__top-line:after {
+          background-color: #2B292D;
+     }
+
+     .header__top-line:before {
+          background-color: #2B292D;
+     }
 }
 
 /* HEADER END */
@@ -865,6 +1080,20 @@ img {
 
 .footer__bot-icon {
      fill: #2b292d60;
+     transition: fill .3s;
+}
+
+.footer__bot-link:hover .footer__bot-icon--tw {
+     fill: #00acee;
+}
+
+.footer__bot-link:hover .footer__bot-icon--fb {
+     fill: #3b5998;
+}
+
+.footer__bot-link:hover .footer__bot-icon--li {
+     fill: #076ea8;
+
 }
 
 @media(max-width:1024px) {

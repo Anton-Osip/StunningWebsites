@@ -19,6 +19,10 @@ img {
      display: block;
 }
 
+.input {
+     outline: none;
+}
+
 .input::placeholder {
      opacity: 1;
      transition: opacity .3s;
@@ -60,7 +64,7 @@ img {
 
 .btn:active {
      transform: scale(0.9);
-     box-shadow: 0 0 30px #3040C4
+     box-shadow: 0 0 30px #3040C4;
 }
 
 /* HEADER START */
@@ -1060,6 +1064,11 @@ img {
      color: rgba(43, 41, 45, 0.6);
      text-decoration: none;
      padding-bottom: 8px;
+     transition: color .3s;
+}
+
+.footer__top-link:hover {
+     color: rgba(43, 41, 45, 1);
 }
 
 .footer__bot {
